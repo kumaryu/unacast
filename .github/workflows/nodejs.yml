@@ -7,7 +7,7 @@ jobs:
     runs-on: ${{ matrix.os }}
     strategy:
       matrix:
-        node-version: [14.x, 16.x, 18.x]
+        node-version: [16.x, 18.x]
         os: [windows-latest, macOS-latest]
       fail-fast: false
     steps:
@@ -19,6 +19,6 @@ jobs:
       - name: Install
         run: |
           yarn config set msvs_version 2022 -g
-          yarn install --frozen-lockfile
+          yarn install --openssl_fips='' --frozen-lockfile 
       - name: Build
         run: yarn build
