@@ -17,8 +17,8 @@ jobs:
         with:
           node-version: ${{ matrix.node-version }}
       - name: Install
-        run:
-          - yarn config set msvs_version 2022 -g
-          - yarn install --frozen-lockfile
+        run: |
+          yarn config set msvs_version 2022 -g
+          yarn install --frozen-lockfile
       - name: Build
         run: yarn build
